@@ -1,0 +1,51 @@
+*{
+      box-sizing: border-box;
+    }
+    
+    .container{
+      border: 5px solid black;
+    }
+    .container>*{
+      border:5px solid red;
+    }
+    .container>.content>*{
+      border:5px solid green;
+    }
+    .container .content{
+      padding-left:200px;
+      overflow:hidden;
+    }
+    .container .content>*{
+      float:left;
+      padding-bottom:600px;
+      margin-bottom:-600px;
+    }
+    .container footer{
+      clear: both; //float에 영향을 받지 않게되는 속성
+    }
+    .container .content main{
+      width:100%;
+      
+    }
+    .container .content nav{
+      width:200px;
+      margin-left:-200px;
+    }
+    
+    /* 화면의 width가 600px보다 작으면 실행 
+      그리고 선언위치 중요 */
+    @media(max-width:599px){
+      .container .content>*{
+        float:none;
+        padding-bottom:0px;
+        margin-bottom:0;
+      }
+      .container .content{
+        padding-left:0;
+        overflow:visible;
+      }
+      .container .content nav{
+        width:auto;
+        margin-left:0;
+      }
+    }
